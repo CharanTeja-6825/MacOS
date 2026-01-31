@@ -4,9 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve, dirname } from "path";
 import { fileURLToPath } from 'url';
 
+const EXPECTED_REPOSITORY_PARTS = 2;
 const repository = process.env.GITHUB_REPOSITORY || '';
-const repositoryParts = repository.split('/').filter(Boolean);
-const repoName = repositoryParts.length === 2 ? repositoryParts[1] : '';
+const repositoryParts = repository.split('/').filter((part) => part.trim() !== '');
+const repoName = repositoryParts.length === EXPECTED_REPOSITORY_PARTS ? repositoryParts[1] : '';
 const pagesBasePath = process.env.VITE_BASE || (repoName ? `/${repoName}/` : '/');
 const shouldUsePagesBase = pagesBasePath !== '/';
 
