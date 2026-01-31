@@ -14,7 +14,7 @@ const shouldUsePagesBase = pagesBasePath !== '/';
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
   // Use the repository base only for production builds targeting GitHub Pages.
-  base: command === 'build' && shouldUsePagesBase ? pagesBasePath : '/',
+	base: command === 'build' && shouldUsePagesBase ? pagesBasePath : '/MacOS/',
   plugins: [
     react(),
     tailwindcss(),
