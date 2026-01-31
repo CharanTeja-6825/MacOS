@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve, dirname } from "path";
 import { fileURLToPath } from 'url';
 
-const [, repoName = ''] = (process.env.GITHUB_REPOSITORY || '').split('/');
+const repoName = (process.env.GITHUB_REPOSITORY || '').split('/')[1] || '';
 const pagesBasePath = process.env.VITE_BASE || (repoName ? `/${repoName}/` : '/');
 
 // https://vite.dev/config/
