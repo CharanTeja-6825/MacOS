@@ -5,7 +5,8 @@ import { resolve, dirname } from "path";
 import { fileURLToPath } from 'url';
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/MacOS/' : '/',
   plugins: [
     react(),
     tailwindcss(),
@@ -19,4 +20,4 @@ export default defineConfig({
       '#windows' : resolve(dirname(fileURLToPath(import.meta.url)), 'src/windows'),
     }
   }
-})
+}))
