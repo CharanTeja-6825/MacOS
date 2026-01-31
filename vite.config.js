@@ -9,7 +9,7 @@ const pagesBasePath = process.env.VITE_BASE || (repoName ? `/${repoName}/` : '/'
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
-  base: command === 'build' ? pagesBasePath : '/',
+  base: command === 'build' || command === 'serve' ? pagesBasePath : '/',
   plugins: [
     react(),
     tailwindcss(),
