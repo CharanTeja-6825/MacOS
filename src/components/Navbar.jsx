@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav>
         <div>
-            <img src="/images/logo.svg" alt='logo'/>
+            <img src={`${import.meta.env.BASE_URL}images/logo.svg`} alt='logo'/>
             <p className='font-bold'>Charan's Portfolio</p>
 
             <ul>
@@ -18,7 +18,7 @@ const Navbar = () => {
         <div>
             <ul>
                 {navIcons.map(({id, img}) => (
-                    <li key={id}><img src={img} alt="hover-icons" className='icon-hover'/></li>
+                    <li key={id}><img src={`${import.meta.env.BASE_URL}${img.replace(/^\//, '')}`} alt="hover-icons" className='icon-hover'/></li>
                 ))}
             </ul>
             <time>{dayjs().format('ddd D MMM h:mm A')}</time>

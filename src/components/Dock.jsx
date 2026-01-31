@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 
 const Dock = () => {
     const dockRef = useRef(null);
+  const baseUrl = import.meta.env.BASE_URL;
   const toggleApp = (app) => {};
   return (
     <section id='dock'>
@@ -19,7 +20,7 @@ const Dock = () => {
                     disabled={!canOpen}
                     onClick={() => toggleApp({id, canOpen})}
                     ></button>
-                    <img src={`/images/${icon}`} alt={name} loading='lazy' className={canOpen ? '' : 'opactiy-60'} width={100}/>
+                    <img src={`${baseUrl}images/${icon}`} alt={name} loading='lazy' className={canOpen ? '' : 'opactiy-60'} width={100}/>
                 </div>
             ))}
         </div>
