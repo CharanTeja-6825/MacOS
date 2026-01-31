@@ -20,7 +20,7 @@ const Dock = () => {
                     disabled={!canOpen}
                     onClick={() => toggleApp({id, canOpen})}
                     ></button>
-                    <img src={`${baseUrl}images/${icon}`} alt={name} loading='lazy' className={canOpen ? '' : 'opactiy-60'} width={100}/>
+                    <img src={`${baseUrl}images/${icon}`} alt={name} loading='lazy' className={canOpen ? '' : 'opacity-60'} width={100}/>
                 </div>
             ))}
         </div>

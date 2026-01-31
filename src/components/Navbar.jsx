@@ -18,7 +18,7 @@ const Navbar = () => {
         <div>
             <ul>
                 {navIcons.map(({id, img}) => (
-                    <li key={id}><img src={`${import.meta.env.BASE_URL}${img.replace(/^\//, '')}`} alt="hover-icons" className='icon-hover'/></li>
+                    <li key={id}><img src={`${import.meta.env.BASE_URL}${img}`} alt="hover-icons" className='icon-hover'/></li>
                 ))}
             </ul>
             <time>{dayjs().format('ddd D MMM h:mm A')}</time>
