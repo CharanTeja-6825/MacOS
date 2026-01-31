@@ -4,13 +4,16 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve, dirname } from "path";
 import { fileURLToPath } from 'url';
 
-const repoName = (process.env.GITHUB_REPOSITORY || '').split('/')[1] || '';
+const repository = process.env.GITHUB_REPOSITORY || '';
+const repositoryParts = repository.split('/').filter(Boolean);
+const repoName = repositoryParts.length === 2 ? repositoryParts[1] : '';
 const pagesBasePath = process.env.VITE_BASE || (repoName ? `/${repoName}/` : '/');
+const shouldUsePagesBase = pagesBasePath !== '/';
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
   // Use the repository base only for production builds targeting GitHub Pages.
-  base: command === 'build' && (process.env.VITE_BASE || repoName) ? pagesBasePath : '/',
+  base: command === 'build' && shouldUsePagesBase ? pagesBasePath : '/',
   plugins: [
     react(),
     tailwindcss(),
