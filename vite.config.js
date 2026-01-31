@@ -4,9 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve, dirname } from "path";
 import { fileURLToPath } from 'url';
 
+const pagesBasePath = '/MacOS/';
+
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
-  base: command === 'build' ? '/MacOS/' : '/',
+  base: command === 'build' ? pagesBasePath : '/',
   plugins: [
     react(),
     tailwindcss(),
