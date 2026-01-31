@@ -5,7 +5,10 @@ import { resolve, dirname } from "path";
 import { fileURLToPath } from 'url';
 
 const repoName = (process.env.GITHUB_REPOSITORY || '').split('/')[1] || '';
-const pagesBasePath = process.env.VITE_BASE || (repoName ? `/${repoName}/` : '/');
+const determineBasePath = () => (
+  process.env.VITE_BASE || (repoName ? `/${repoName}/` : '/')
+);
+const pagesBasePath = determineBasePath();
 
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
