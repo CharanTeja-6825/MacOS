@@ -1,4 +1,4 @@
-# MacOS Portfolio
+# macOS Portfolio
 
 This repository hosts a macOS-inspired portfolio built with React and Vite.
 
