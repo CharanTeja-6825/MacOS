@@ -5,12 +5,12 @@ import { resolve, dirname } from "path";
 import { fileURLToPath } from 'url';
 
 const repoParts = (process.env.GITHUB_REPOSITORY || '').split('/');
-const repoName = repoParts.length > 1 ? repoParts[1] : '';
+const repoName = repoParts[1] || '';
 const pagesBasePath = process.env.VITE_BASE || (repoName ? `/${repoName}/` : '/');
 
 // https://vite.dev/config/
-export default defineConfig(({ command, mode }) => ({
-  base: command === 'build' || (command === 'serve' && mode === 'production') ? pagesBasePath : '/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? pagesBasePath : '/',
   plugins: [
     react(),
     tailwindcss(),
